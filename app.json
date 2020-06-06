@@ -1,35 +1,42 @@
 {
   "name": "Jekimo",
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev",
+    "papertrail:choklad"
+  ],
+  "buildpacks": [
+    {"url": "heroku/nodejs"},
+    {"url": "heroku/ruby"}
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "env": {
+    "JEKIMO_SMTP_ADDRESS": "changeme",
+    "JEKIMO_SMTP_DOMAIN": "changeme",
+    "JEKIMO_SMTP_PASSWORD": "changeme",
+    "JEKIMO_SMTP_PORT": "changeme",
+    "JEKIMO_SMTP_USER_NAME": "changeme"
+  },
   "description": "The starting point of an awesome app.",
   "website": "https://jekimo.herokuapp.com",
   "repository": "https://github.com/muyiwaolu/jekimo",
+  "keywords": ["rails", "nodejs", "postgres", "redis", "sidekiq"],
   "environments": {
     "review": {
-      "addons": [
-        "heroku-postgresql:hobby-dev",
-        "heroku-redis:hobby-dev",
-        "papertrail:choklad"
-      ],
-      "buildpacks": [
-        {"url": "heroku/nodejs"},
-        {"url": "heroku/ruby"}
-      ],
       "env": {
         "JEKIMO_SMTP_ADDRESS": "smtp.mailtrap.io",
         "JEKIMO_SMTP_DOMAIN": "smtp.mailtrap.io",
         "JEKIMO_SMTP_PORT": "2525",
-        "JEKIMO_SMTP_USER_NAME": "8fca6b343e195d",
-        "RUBYOPT": "-W:no-deprecated"
-      },
-      "formation": {
-        "web": {
-          "quantity": 1,
-          "size": "hobby"
-        },
-        "worker": {
-          "quantity": 1,
-          "size": "hobby"
-        }
+        "JEKIMO_SMTP_USER_NAME": "8fca6b343e195d"
       }
     }
   }

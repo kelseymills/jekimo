@@ -2,6 +2,9 @@
 
 The starting point of an awesome app.
 
+## Try it!
+[![Deploy to Heroku button](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/muyiwaolu/jekimo/)
+
 ## Supported Environments
 - macOS
 - Linux
@@ -23,4 +26,3 @@ The following environment variables need to be set:
 - `JEKIMO_SMTP_ADDRESS`       
 - `JEKIMO_SMTP_DOMAIN`        
 - `JEKIMO_SMTP_PORT` 
-
