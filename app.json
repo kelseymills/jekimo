@@ -1,0 +1,36 @@
+{
+  "name": "Jekimo",
+  "description": "The starting point of an awesome app.",
+  "website": "https://jekimo.herokuapp.com",
+  "repository": "https://github.com/muyiwaolu/jekimo",
+  "environments": {
+    "review": {
+      "addons": [
+        "heroku-postgresql:hobby-dev",
+        "heroku-redis:hobby-dev",
+        "papertrail:choklad"
+      ],
+      "buildpacks": [
+        {"url": "heroku/nodejs"},
+        {"url": "heroku/ruby"}
+      ],
+      "env": {
+        "JEKIMO_SMTP_ADDRESS": "smtp.mailtrap.io",
+        "JEKIMO_SMTP_DOMAIN": "smtp.mailtrap.io",
+        "JEKIMO_SMTP_PORT": "2525",
+        "JEKIMO_SMTP_USER_NAME": "8fca6b343e195d",
+        "RUBYOPT": "-W:no-deprecated"
+      },
+      "formation": {
+        "web": {
+          "quantity": 1,
+          "size": "hobby"
+        },
+        "worker": {
+          "quantity": 1,
+          "size": "hobby"
+        }
+      }
+    }
+  }
+}

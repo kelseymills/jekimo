@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+  <div class="container">
+    <%= link_to(root_url, class: "navbar-brand") do %>
+      <%= t('app_name') %>
+    <% end %>
+    <button class="navbar-toggler" type="button"
+            data-toggle="collapse"
+            data-target="#navbarMarkup"
+            aria-controls="navbarMarkup"
+            aria-expanded="false"
+            aria-label="<%= t('views.shared.nav.toggle_navigation') %>">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMarkup">
+      <div class="navbar-nav">
+        <%= link_to(root_url, class: 'nav-link') do %>
+          <%= fa_icon('home') %>
+          <%= t('views.shared.nav.home') %>
+        <% end %>
+        <%- unless Rails.env.production? %>
+          <%= link_to(dev_ui_path, class: 'nav-link') do %>
+            <%= fa_icon('code') %>
+            <%= t('views.shared.nav.dev_ui') %>
+          <% end %>
+        <% end %>
+        <%- if user_signed_in? %>
+          <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
+            <%= fa_icon('sign-out-alt') %>
+            <%= t('views.shared.nav.sign_out') %>
+          <% end %>
+        <%- else %>
+          <%= link_to(new_user_session_path, class: 'nav-link') do %>
+            <%= fa_icon('sign-in-alt') %>
+            <%= t('views.shared.nav.sign_in') %>
+          <% end %>
+        <%- end %>
+      </div>
+    </div>
+  </div>
+</nav>

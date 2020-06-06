@@ -1,0 +1,9 @@
+<%- view_locals = {title: t('.title')} %>
+<h1><%= view_locals.fetch(:title) %></h1>
+<%- if user_signed_in? %>
+  <p> Welcome <%= current_user.email %></p>
+<%- else %>
+  <p>You are not signed in.</p>
+<%- end %>
+
+<%= content_for(:page_title, view_locals.fetch(:title)) %>

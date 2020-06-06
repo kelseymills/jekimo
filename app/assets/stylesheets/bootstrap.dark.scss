@@ -1,0 +1,17 @@
+body {
+  // The hex code below is for the .bg-dark bootstrap theme.
+  background-color: lighten(#343a40, 5%);
+  color: var(--light);
+}
+
+a {
+  &:hover {
+    color: var(--white)
+  }
+
+  &:visited {
+    color: var(--light)
+  }
+
+  color: var(--light)
+}

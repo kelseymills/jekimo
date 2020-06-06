@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+./bin/erblint --lint-all && ./bin/rubocop && npm run lint

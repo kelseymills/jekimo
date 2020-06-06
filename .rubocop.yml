@@ -1,0 +1,54 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - 'bin/**/*'
+    - 'db/migrate/**/*.rb'
+    - 'db/schema.rb'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
+    - 'config/environments/**/*.rb'
+  Max: 120
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/RedundantCopDisableDirective:
+  Exclude:
+    # Heroku CI's ruby buildpack automatically generates
+    # this file which fails `Lint/RedundantCopDisableDirective`
+    # in production.
+    - 'lib/tasks/heroku_clear_tasks.rake'
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/**/*.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: True
+
+Style/HashTransformKeys:
+  Enabled: True
