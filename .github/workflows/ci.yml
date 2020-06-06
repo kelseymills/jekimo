@@ -1,4 +1,4 @@
-name: CI
+name: Continuous Integration
 on:
   push:
     branches: [ master ]
@@ -17,25 +17,32 @@ jobs:
           POSTGRES_PASSWORD: postgres
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-ruby@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.1
 
-      - uses: actions/cache@v1
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - uses: actions/cache@v1
+      - name: Cache Ruby dependencies
+        uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+
+      - name: Install Node.js dependencies
+        run: npm ci
 
       - name: Bundle install
         run: |
@@ -64,7 +71,7 @@ jobs:
           RUBYOPT: "-W:no-deprecated"
 
       - name: Lint JavaScript
-        run: npm run lint
+        run: npm run lint-js
         env:
           RAILS_ENV: test
           RUBYOPT: "-W:no-deprecated"

@@ -1,0 +1,37 @@
+name: Lint Website HTML
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Cache Node.js packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Install htmlcheck and pa11y
+        run: npm i -g htmlhint pa11y
+
+      - name: Lint the website's HTML files
+        run: htmlhint docs/index.html
+
+      - name: Check the website's accessibility using Pa11y
+        run: pa11y file://$(pwd)/docs/index.html
