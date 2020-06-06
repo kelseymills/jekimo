@@ -9,38 +9,54 @@
     <title>Jekimo</title>
 
     <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <style>
+      code { background-color: #fafafd; }
+    </style>
   </head>
-  <body class="container">
-    <header>
-      <h1>Jekimo</h1>
-    </header>
-    <section>
-      <ul>
-        <li>An opinionated Ruby on Rails template 👩🏿‍💻</li>
-        <li>Bundled with useful gems 💎</li>
-        <li>Designed to be deployed to the cloud ⛅️</li>
-      </ul>
-    </section>
-    <section>
+  <body>
+    <div class="container">
       <header>
-        <h2>Try it!</h2>
+        <h1>Jekimo</h1>
       </header>
-      <a href="https://heroku.com/deploy?template=https://github.com/muyiwaolu/jekimo" target="_blank">
-        <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy with Heroku button">
-      </a>
-    </section>
-    <footer>
-      <nav>
-        <header>
-          <h2>Links</h2>
-        </header>
+      <section>
         <ul>
-          <li><a href="https://github.com/muyiwaolu/jekimo">See the code</a> 💻</li>
-          <li><a href="https://github.com/muyiwaolu/jekimo/wiki">Read the wiki</a> 📖</li>
+          <li>An opinionated Ruby on Rails template 👩🏿‍💻</li>
+          <li>Bundled with useful gems 💎</li>
+          <li>Designed to be deployed to the cloud ⛅️</li>
         </ul>
-      </nav>
-      <p>Copyright © 2020 Muyiwa Olu.</p>
-      <p>Website CSS thanks to <a href="https://github.com/jenil/chota">Chota</a>.</p>
-    </footer>
+      </section>
+      <section>
+        <header>
+          <h2>Try it!</h2>
+        </header>
+        <section>
+          <header>
+            <h4>1. Deploy the app to Heroku</h4>
+          </header>
+          <a href="https://heroku.com/deploy?template=https://github.com/muyiwaolu/jekimo" target="_blank">
+            <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy with Heroku button">
+          </a>
+        </section>
+        <section>
+          <header>
+            <h4>(Optional) 2. Add a user</h4>
+          </header>
+          <code>heroku run bin/rails db:seed --app your-app-name-here</code>
+        </section>
+      </section>
+      <footer>
+        <nav>
+          <header>
+            <h2>Links</h2>
+          </header>
+          <ul>
+            <li><a href="https://github.com/muyiwaolu/jekimo">See the code</a> 💻</li>
+            <li><a href="https://github.com/muyiwaolu/jekimo/wiki">Read the wiki</a> 📖</li>
+          </ul>
+        </nav>
+        <p>Copyright © 2020 Muyiwa Olu.</p>
+        <p>Website CSS thanks to <a href="https://github.com/jenil/chota">Chota</a>.</p>
+      </footer>
+    </div>
   </body>
 </html>
